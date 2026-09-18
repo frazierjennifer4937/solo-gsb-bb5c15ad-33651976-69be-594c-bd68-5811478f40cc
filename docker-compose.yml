@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    image: lab-mixing-tracker:latest
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_PATH: /data/labtrack.db
+    volumes:
+      - labtrack-data:/data
+    restart: unless-stopped
+
+volumes:
+  labtrack-data:
